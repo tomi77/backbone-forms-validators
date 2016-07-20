@@ -14,8 +14,10 @@
     "node_modules",
     "bower_components",
     "src",
+    "spec",
     ".*",
-    "*.json"
+    "*.json",
+    "*.js"
   ],
   "dependencies": {
     "backbone-forms": "^0.14.1",
