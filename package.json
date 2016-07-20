@@ -1,0 +1,30 @@
+{
+  "name": "backbone-forms-validators",
+  "version": "1.0.0",
+  "description": "A set of Backbone-Forms validators",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run build-js; npm run uglify",
+    "build-js": "coffee --bare --compile --no-header --output dist -- src/*.coffee",
+    "uglify": "uglifyjs dist/bbf-validators.js --output dist/bbf-validators.min.js --compress --mangle"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomi77/backbone-forms-validators.git"
+  },
+  "keywords": [
+    "backbone-forms",
+    "validators"
+  ],
+  "author": "Tomasz Jakub Rup",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomi77/backbone-forms-validators/issues"
+  },
+  "homepage": "https://github.com/tomi77/backbone-forms-validators#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "coffee-script": "^1.10.0",
+    "uglifyjs-folder": "^0.2.1"
+  }
+}
