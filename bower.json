@@ -1,0 +1,24 @@
+{
+  "name": "backbone-forms-validators",
+  "description": "A set of Backbone-Forms validators",
+  "authors": [
+    "Tomasz Jakub Rup"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "backbone-forms",
+    "validators"
+  ],
+  "homepage": "https://github.com/tomi77/backbone-forms-validators",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "src",
+    ".*",
+    "*.json"
+  ],
+  "dependencies": {
+    "backbone-forms": "^0.14.1",
+    "underscore": "^1.8.3"
+  }
+}
