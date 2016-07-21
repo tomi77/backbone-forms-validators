@@ -45,7 +45,23 @@
     options = _.extend
       type: 'phone'
       message: Form.validators.errMessages.phone
-      regexp: /^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/
+      regexp: /// ^
+        (?:
+          (?:
+            \(? (?: 00 | \+ ) (?: [1-4]\d{2} | [1-9]\d? ) \)?
+          )?
+          [\-\.\ \\\/]?
+        )?
+        (?:
+          \(? \d+ \)? [\-\.\ \\\/]?
+        )+
+        (?:
+          [\-\.\ \\\/]?
+          (?: \# | ext\.? | extension | x )
+          [\-\.\ \\\/]?
+          \d+
+        )?
+        $ ///
     , options
 
     Form.validators.regexp options

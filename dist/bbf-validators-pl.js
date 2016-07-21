@@ -20,10 +20,11 @@
       factory(root._, root.Backbone.Form);
   }
 })(this, function(_, Form) {
+  Form.validators.errMessages.nip = 'Invalid NIP';
   Form.validators.nip = function(options) {
     options = _.extend({
       type: 'nip',
-      message: 'Invalid NIP'
+      message: Form.validators.errMessages.nip
     }, options);
     return function(value) {
       var control, err, sum, weights;
@@ -42,16 +43,15 @@
       if (!(value.length === 10 && parseInt(value, 10) > 0)) {
         return err;
       }
-      value = value.map(parseInt);
+      value = value.split('').map(function(val) {
+        return parseInt(val, 10);
+      });
       control = value.pop();
       weights = [6, 5, 7, 2, 3, 4, 5, 6, 7];
       sum = _.reduce(_.zip(value, weights), function(memo, val) {
         return memo + val[0] * val[1];
       }, 0);
       value = sum % 11;
-      if (value === 10) {
-        value = 0;
-      }
       if (value !== control) {
         return err;
       }
