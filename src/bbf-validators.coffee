@@ -18,13 +18,12 @@
       factory root._, root.Backbone.Form
   return
 ) @, (_, Form) ->
-  Form.validators.emails = (options) ->
+  Form.validators.multiple = (options) ->
     options = _.extend
-      type: 'emails'
-      message: 'Correct e-mail addresses. Addresses split the semicolon'
-      regexp: /^[\w\-]+([\w\-\+.][\w\-]+)*[@][\w\-]+([.]([\w\-]+)){1,3}$/
       separator: ';'
     , options
+
+    base_validator = Form.validators[options.base_type] options
 
     (value) ->
       value = null if value.trim() is ''
@@ -36,9 +35,10 @@
 
       value = value.split(options.separator).map (email) -> email.trim()
 
-      unless _.all value, options.regexp.test, options.regexp
-        type: options.type
-        message: options.message
+      out = _.compact _.map value, base_validator
+      if out.length > 0
+        type: options.base_type
+        message: options.message or out[0].message
 
   Form.validators.phone = (options) ->
     options = _.extend

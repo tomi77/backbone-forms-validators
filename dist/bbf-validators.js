@@ -20,14 +20,14 @@
       factory(root._, root.Backbone.Form);
   }
 })(this, function(_, Form) {
-  Form.validators.emails = function(options) {
+  Form.validators.multiple = function(options) {
+    var base_validator;
     options = _.extend({
-      type: 'emails',
-      message: 'Correct e-mail addresses. Addresses split the semicolon',
-      regexp: /^[\w\-]+([\w\-\+.][\w\-]+)*[@][\w\-]+([.]([\w\-]+)){1,3}$/,
       separator: ';'
     }, options);
+    base_validator = Form.validators[options.base_type](options);
     return function(value) {
+      var out;
       if (value.trim() === '') {
         value = null;
       }
@@ -38,10 +38,11 @@
       value = value.split(options.separator).map(function(email) {
         return email.trim();
       });
-      if (!_.all(value, options.regexp.test, options.regexp)) {
+      out = _.compact(_.map(value, base_validator));
+      if (out.length > 0) {
         return {
-          type: options.type,
-          message: options.message
+          type: options.base_type,
+          message: options.message || out[0].message
         };
       }
     };
