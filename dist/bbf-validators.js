@@ -9,6 +9,8 @@
   Released under the MIT license
  */
 (function(root, factory) {
+
+  /* istanbul ignore next */
   switch (false) {
     case !(typeof define === 'function' && define.amd):
       define(['underscore', 'backbone-forms'], factory);
