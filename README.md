@@ -23,9 +23,9 @@ Model = new Backbone.Model
       type: 'Text'
       validators: [
         type: 'multiple'
-        base_type: 'number'
+        base_type: 'email'
         separator: ','
-        message: 'Numbers separated by colon'
+        message: 'Emails separated by colon'
       ]
 
 model = new Model()
