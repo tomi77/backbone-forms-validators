@@ -29,13 +29,25 @@ module.exports = (config) ->
     # preprocess matching files before serving them to the browser
     # available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors:
-      '**/*.coffee': ['coffee']
+      'src/*.coffee': ['coffee-coverage']
+      'spec/*.coffee': ['coffee']
 
 
     # test results reporter to use
     # possible values: 'dots', 'progress'
     # available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress']
+    reporters: ['progress', 'coverage']
+
+
+    coverageReporter:
+      type: 'lcov'
+      dir: 'coverage/'
+      includeAllSources: true
+
+
+    coffeeCoverage:
+      preprocessor:
+        instrumentor: 'istanbul'
 
 
     # web server port
