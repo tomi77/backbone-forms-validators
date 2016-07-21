@@ -40,8 +40,9 @@ module.exports = (config) ->
 
 
     coverageReporter:
-      type: 'lcov'
-      dir: 'coverage/'
+      type: 'lcovonly'
+      dir: 'coverage'
+      subdir: '.'
       includeAllSources: true
 
 
