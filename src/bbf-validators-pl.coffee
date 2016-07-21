@@ -9,7 +9,7 @@
 ###
 
 ((root, factory) ->
-  switch
+  switch # istanbul ignore next
     when typeof define is 'function' and define.amd
       define ['underscore', 'backbone-forms'], factory
     when typeof exports is 'object'
