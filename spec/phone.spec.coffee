@@ -76,7 +76,6 @@ describe 'A phone validator', () ->
       expect(validator '01234567890').toBeUndefined()
 
   it 'shouldn\'t validate incorrect phone numbers', () ->
-    out = validator '8 800 600-APPLE'
-    expect(out).toBeDefined()
-    expect(out.type).toBeDefined()
-    expect(out.message).toBeDefined()
+    expect(validator '8 800 600-APPLE').toBeDefined()
+    expect(validator('8 800 600-APPLE').type).toBe('phone')
+    expect(validator('8 800 600-APPLE').message).toBe(Backbone.Form.validators.errMessages.phone)

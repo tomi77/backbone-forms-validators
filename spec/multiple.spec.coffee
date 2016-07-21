@@ -1,9 +1,11 @@
 describe 'A multiple validator', () ->
   validator_default = Backbone.Form.validators.multiple
     base_type: 'number'
+
   validator_colon = Backbone.Form.validators.multiple
     base_type: 'number'
     separator: ','
+
   validator_message = Backbone.Form.validators.multiple
     base_type: 'number'
     message: 'Invalid'

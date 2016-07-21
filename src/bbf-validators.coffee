@@ -40,10 +40,11 @@
         type: options.base_type
         message: options.message or out[0].message
 
+  Form.validators.errMessages.phone = 'Incorrect phone number'
   Form.validators.phone = (options) ->
     options = _.extend
       type: 'phone'
-      message: 'Incorrect phone number'
+      message: Form.validators.errMessages.phone
       regexp: /^(?:(?:\(?(?:00|\+)([1-4]\d\d|[1-9]\d?)\)?)?[\-\.\ \\\/]?)?((?:\(?\d{1,}\)?[\-\.\ \\\/]?){0,})(?:[\-\.\ \\\/]?(?:#|ext\.?|extension|x)[\-\.\ \\\/]?(\d+))?$/
     , options
 
