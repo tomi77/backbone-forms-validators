@@ -17,7 +17,7 @@ bower install backbone-forms-validators
 ### multiple
 
 ~~~coffee-script
-Model = new Backbone.Model
+form = new Backbone.Form
   schema:
     nip:
       type: 'Text'
@@ -27,28 +27,18 @@ Model = new Backbone.Model
         separator: ','
         message: 'Emails separated by colon'
       ]
-
-model = new Model()
-
-form = new Backbone.Form
-  model: model
 ~~~
 
 ### phone
 
-Validates phone numbers
+Validates phone number
 
 ~~~coffee-script
-Model = new Backbone.Model
+form = new Backbone.Form
   schema:
     nip:
       type: 'Text'
       validators: ['phone']
-
-model = new Model()
-
-form = new Backbone.Form
-  model: model
 ~~~
 
 ### nip
@@ -56,16 +46,11 @@ form = new Backbone.Form
 Validates NIP (Polish tax identification number)
 
 ~~~coffee-script
-Model = new Backbone.Model
+form = new Backbone.Form
   schema:
     nip:
       type: 'Text'
       validators: ['nip']
-
-model = new Model()
-
-form = new Backbone.Form
-  model: model
 ~~~
 
 ## Demo
