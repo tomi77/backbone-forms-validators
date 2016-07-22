@@ -29,6 +29,8 @@ form = new Backbone.Form
       ]
 ~~~
 
+[Demo](https://tomi77.github.io/backbone-forms-validators/multiple.html)
+
 ### phone
 
 Validates phone number
@@ -40,6 +42,8 @@ form = new Backbone.Form
       type: 'Text'
       validators: ['phone']
 ~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-validators/phone.html)
 
 ### nip
 
@@ -53,6 +57,4 @@ form = new Backbone.Form
       validators: ['nip']
 ~~~
 
-## Demo
-
-https://tomi77.github.io/backbone-forms-validators/
+[Demo](https://tomi77.github.io/backbone-forms-validators/nip.html)
