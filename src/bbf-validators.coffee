@@ -74,7 +74,7 @@
       maxlength: 0
       message: Form.validators.errMessages.maxlength
     , options
-    options.regexp = "^.{0,#{ options.maxlength }}$"
+    options.regexp = new RegExp "^.{0,#{ options.maxlength }}$"
 
     Form.validators.regexp options
 
