@@ -19,7 +19,7 @@ bower install backbone-forms-validators
 ~~~coffee-script
 form = new Backbone.Form
   schema:
-    nip:
+    emails:
       type: 'Text'
       validators: [
         type: 'multiple'
@@ -38,7 +38,7 @@ Validates phone number
 ~~~coffee-script
 form = new Backbone.Form
   schema:
-    nip:
+    phone:
       type: 'Text'
       validators: ['phone']
 ~~~
