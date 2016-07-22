@@ -1,11 +1,14 @@
 language: node_js
 
-node_js:
-  - "0.12"
+node_js: 0.12
+
+env:
+  - UNDERSCORE=1.3.0 BACKBONE_FORMS=0.9.0
+  - UNDERSCORE=1.8.3 BACKBONE_FORMS=0.14.1
 
 before_install:
   - npm install -g bower
-  - bower install
+  - bower install jquery underscore#$UNDERSCORE backbone-forms#$BACKBONE_FORMS
 
 after_success:
   - npm run coveralls
