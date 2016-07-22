@@ -16,6 +16,6 @@
     "karma-coverage": "^1.1.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
-    "uglifyjs-folder": "^0.2.1"
+    "uglify-js": "^2.7.0"
   }
 }
