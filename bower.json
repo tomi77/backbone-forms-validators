@@ -1,9 +1,11 @@
 {
   "name": "backbone-forms-validators",
   "description": "A set of Backbone-Forms validators",
+  "main": "dist/bbf-validators.js",
   "authors": [
     "Tomasz Jakub Rup"
   ],
+  "moduleType": ["globals", "amd", "node"],
   "license": "MIT",
   "keywords": [
     "backbone-forms",
