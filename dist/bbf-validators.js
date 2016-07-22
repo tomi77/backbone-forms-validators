@@ -58,4 +58,14 @@
     }, options);
     return Form.validators.regexp(options);
   };
+  Form.validators.errMessages.maxlength = _.template('The maximum length is <%= maxlength %> characters', null, Form.templateSettings);
+  Form.validators.maxlength = function(options) {
+    options = _.extend({
+      type: 'maxlength',
+      maxlength: 0,
+      message: Form.validators.errMessages.maxlength
+    }, options);
+    options.regexp = "^.{0," + options.maxlength + "}$";
+    return Form.validators.regexp(options);
+  };
 });

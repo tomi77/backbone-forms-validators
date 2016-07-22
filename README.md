@@ -45,6 +45,23 @@ form = new Backbone.Form
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/phone.html)
 
+### maxlength
+
+Validates length of entered text
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    text:
+      type: 'Text'
+      validators: [
+        type: 'maxlength'
+        maxlength: 9
+      ]
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-validators/maxlength.html)
+
 ### nip
 
 Validates NIP (Polish tax identification number)
