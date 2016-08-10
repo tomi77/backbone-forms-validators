@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/tomi77/backbone-forms-validators.svg?branch=master)](https://travis-ci.org/tomi77/backbone-forms-validators)
 [![Coverage Status](https://coveralls.io/repos/github/tomi77/backbone-forms-validators/badge.svg)](https://coveralls.io/github/tomi77/backbone-forms-validators)
 [![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-validators/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-validators)
+[![Dependency Status](https://www.versioneye.com/user/projects/57aacbb6c75d640030d07f83/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57aacbb6c75d640030d07f83)
 
 A set of Backbone-Forms validators
 
