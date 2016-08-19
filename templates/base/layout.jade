@@ -1,0 +1,41 @@
+mixin menu(name)
+  if name == 'home'
+    li.active: a(href="index.html") Home
+  else
+    li: a(href="index.html") Home
+
+  if name == 'multiple'
+    li.active: a(href="multiple.html") Multiple
+  else
+    li: a(href="multiple.html") Multiple
+
+  if name == 'maxlength'
+    li.active: a(href="maxlength.html") Max Length
+  else
+    li: a(href="maxlength.html") Max Length
+
+  if name == 'phone'
+    li.active: a(href="phone.html") Phone
+  else
+    li: a(href="phone.html") Phone
+
+  if name == 'nip'
+    li.active: a(href="nip.html") NIP
+  else
+    li: a(href="nip.html") NIP
+
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    block title
+    link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css")
+    block extraheaders
+  body
+    nav.navbar.navbar-default
+      .container
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            block menu
+              +menu('home')
+    block content

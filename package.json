@@ -4,7 +4,8 @@
     "build-js": "coffee --bare --compile --no-header --output dist -- src/*.coffee",
     "uglify": "for FILE in \"bbf-validators\" \"bbf-validators-pl\"; do uglifyjs dist/${FILE}.js --output dist/${FILE}.min.js --compress --mangle; done",
     "test": "karma start",
-    "coveralls": "cat coverage/lcov.info | coveralls"
+    "coveralls": "cat coverage/lcov.info | coveralls",
+    "build-docs": "pug --out docs templates/*.jade"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
@@ -16,6 +17,7 @@
     "karma-coverage": "^1.1.0",
     "karma-jasmine": "^1.0.2",
     "karma-phantomjs-launcher": "^1.0.1",
+    "pug-cli": "^1.0.0-alpha6",
     "uglify-js": "^2.7.0"
   }
 }
