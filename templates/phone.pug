@@ -1,10 +1,10 @@
-extends ./base/layout.jade
+extends ./base/layout
 
 block title
-  title Backbone-Forms multiple validator examples
+  title Backbone-Forms phone validator examples
 
 block menu
-  +menu('multiple')
+  +menu('phone')
 
 block extraheaders
   script(type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js")
@@ -17,15 +17,10 @@ block extraheaders
     var example = function () {
       var form = new Backbone.Form({
         schema: {
-          emails: {
+          phone: {
             type: 'Text',
-            title: 'Emails',
-            validators: [{
-              type: 'multiple',
-              base_type: 'email',
-              separator: ',',
-              message: 'Multiple emails separated by colon'
-            }]
+            title: 'Phone',
+            validators: ['phone']
           }
         }
       });
@@ -47,15 +42,10 @@ block content
     pre.
       var form = new Backbone.Form({
         schema: {
-          emails: {
+          phone: {
             type: 'Text',
-            title: 'Emails',
-            validators: [{
-              type: 'multiple',
-              base_type: 'email',
-              separator: ',',
-              message: 'Multiple emails separated by colon'
-            }]
+            title: 'Phone',
+            validators: ['phone']
           }
         }
       });
