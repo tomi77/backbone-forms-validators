@@ -9,7 +9,10 @@
   "license": "MIT",
   "keywords": [
     "backbone-forms",
-    "validators"
+    "validators",
+    "phone",
+    "nip",
+    "pesel"
   ],
   "homepage": "https://github.com/tomi77/backbone-forms-validators",
   "ignore": [
