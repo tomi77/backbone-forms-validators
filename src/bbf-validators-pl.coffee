@@ -80,4 +80,37 @@
       value = sum % 10
       unless value is control then err
 
+  Form.validators.errMessages.regon = 'Invalid REGON'
+  Form.validators.regon = (options) ->
+    options = _.extend
+      type: 'regon'
+      message: Form.validators.errMessages.regon
+    , options
+
+    (value) ->
+      value = null if value.trim() is ''
+
+      # Don't check empty values (add a 'required' validator for this)
+      unless value? then return
+
+      options.value = value
+
+      err = type: options.type, message: options.message
+
+      value = value.replace /[\s-]/g, ''
+      unless value.length in [7, 9, 14] and parseInt(value, 10) > 0 then return err
+
+      value = value.split('').map (val) -> parseInt val, 10
+      control = value.pop()
+      weights = switch value.length
+        when 6 then [2, 3, 4, 5, 6, 7]
+        when 8 then [8, 9, 2, 3, 4, 5, 6, 7]
+        when 13 then [2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8]
+      sum = _.reduce _.zip(value, weights),
+        (memo, val) -> memo + val[0] * val[1]
+      , 0
+      value = sum % 11
+      value = 0 if value is 10
+      unless value is control then err
+
   return

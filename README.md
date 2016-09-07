@@ -84,9 +84,23 @@ Validates Pesel (Polish identification number)
 ~~~coffee-script
 form = new Backbone.Form
   schema:
-    nip:
+    pesel:
       type: 'Text'
       validators: ['pesel']
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/pesel.html)
+
+### regon
+
+Validates REGON (Polish Taxpayer Identification Number)
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    regon:
+      type: 'Text'
+      validators: ['regon']
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-validators/regon.html)

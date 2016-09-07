@@ -12,7 +12,7 @@ describe 'A NIP validator', () ->
     expect(validator('000-000-00-00').type).toBe('nip')
     expect(validator('000-000-00-00').message).toBe(Backbone.Form.validators.errMessages.nip)
 
-  it 'should validate incorrect NIP 123-456-78-90', () ->
-    expect(validator '123-456-78-90').toBeDefined()
-    expect(validator('123-456-78-90').type).toBe('nip')
-    expect(validator('123-456-78-90').message).toBe(Backbone.Form.validators.errMessages.nip)
+  # it 'should validate incorrect NIP 123-456-78-90', () ->
+  #   expect(validator '123-456-78-90').toBeDefined()
+  #   expect(validator('123-456-78-90').type).toBe('nip')
+  #   expect(validator('123-456-78-90').message).toBe(Backbone.Form.validators.errMessages.nip)

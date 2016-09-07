@@ -12,7 +12,8 @@
     "validators",
     "phone",
     "nip",
-    "pesel"
+    "pesel",
+    "regon"
   ],
   "homepage": "https://github.com/tomi77/backbone-forms-validators",
   "ignore": [

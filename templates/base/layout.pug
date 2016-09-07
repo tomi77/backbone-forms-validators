@@ -29,6 +29,11 @@ mixin menu(name)
   else
     li: a(href="pesel.html") Pesel
 
+  if name == 'regon'
+    li.active: a(href="regon.html") REGON
+  else
+    li: a(href="regon.html") REGON
+
 doctype html
 html(lang="en")
   head
