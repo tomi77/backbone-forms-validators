@@ -61,4 +61,41 @@
       }
     };
   };
+  Form.validators.errMessages.pesel = 'Invalid Pesel';
+  Form.validators.pesel = function(options) {
+    options = _.extend({
+      type: 'pesel',
+      message: Form.validators.errMessages.pesel
+    }, options);
+    return function(value) {
+      var control, err, sum, weights;
+      if (value.trim() === '') {
+        value = null;
+      }
+      if (value == null) {
+        return;
+      }
+      options.value = value;
+      err = {
+        type: options.type,
+        message: options.message
+      };
+      value = value.replace(/[\s-]/g, '');
+      if (!(value.length === 11 && parseInt(value, 10) > 0)) {
+        return err;
+      }
+      value = value.split('').map(function(val) {
+        return parseInt(val, 10);
+      });
+      control = value.pop();
+      weights = [9, 7, 3, 1, 9, 7, 3, 1, 9, 7];
+      sum = _.reduce(_.zip(value, weights), function(memo, val) {
+        return memo + val[0] * val[1];
+      }, 0);
+      value = sum % 10;
+      if (value !== control) {
+        return err;
+      }
+    };
+  };
 });

@@ -76,3 +76,17 @@ form = new Backbone.Form
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/nip.html)
+
+### pesel
+
+Validates Pesel (Polish identification number)
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    nip:
+      type: 'Text'
+      validators: ['pesel']
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-validators/pesel.html)

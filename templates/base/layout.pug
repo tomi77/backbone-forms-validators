@@ -24,6 +24,11 @@ mixin menu(name)
   else
     li: a(href="nip.html") NIP
 
+  if name == 'pesel'
+    li.active: a(href="pesel.html") Pesel
+  else
+    li: a(href="pesel.html") Pesel
+
 doctype html
 html(lang="en")
   head
