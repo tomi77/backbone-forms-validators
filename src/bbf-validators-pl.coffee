@@ -48,6 +48,7 @@
         (memo, val) -> memo + val[0] * val[1]
       , 0
       value = sum % 11
+      value = 0 if value is 10
       unless value is control then err
 
   Form.validators.errMessages.pesel = 'Invalid Pesel'

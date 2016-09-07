@@ -5,6 +5,7 @@ describe 'A NIP validator', () ->
     expect(validator '768-000-24-66').toBeUndefined()
     expect(validator '123-456-32-18').toBeUndefined()
     expect(validator '106-00-00-062').toBeUndefined()
+    expect(validator '1234567890').toBeUndefined()
 
   it 'should validate incorrect NIP 000-000-00-00', () ->
     expect(validator '000-000-00-00').toBeDefined()
