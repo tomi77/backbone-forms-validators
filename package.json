@@ -5,7 +5,7 @@
     "uglify": "for FILE in \"bbf-validators\" \"bbf-validators-pl\"; do uglifyjs dist/${FILE}.js --output dist/${FILE}.min.js --compress --mangle; done",
     "test": "karma start",
     "coveralls": "cat coverage/lcov.info | coveralls",
-    "build-docs": "pug --out docs templates/*.pug"
+    "build-docs": "pug --out docs templates/*.pug; find dist/ ! -name \"*.min.js\" -type f -exec cp -t docs/ {} +"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
