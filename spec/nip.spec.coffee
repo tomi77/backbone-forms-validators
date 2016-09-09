@@ -7,12 +7,6 @@ describe 'A NIP validator', () ->
     expect(validator '106-00-00-062').toBeUndefined()
     expect(validator '1234567890').toBeUndefined()
 
-  it 'should validate incorrect NIP 000-000-00-00', () ->
-    expect(validator '000-000-00-00').toBeDefined()
-    expect(validator('000-000-00-00').type).toBe('nip')
-    expect(validator('000-000-00-00').message).toBe(Backbone.Form.validators.errMessages.nip)
-
-  # it 'should validate incorrect NIP 123-456-78-90', () ->
-  #   expect(validator '123-456-78-90').toBeDefined()
-  #   expect(validator('123-456-78-90').type).toBe('nip')
-  #   expect(validator('123-456-78-90').message).toBe(Backbone.Form.validators.errMessages.nip)
+  it 'should validate incorrect NIP', () ->
+    expect(validator '000-000-00-00').toEqual type: 'nip', message: Backbone.Form.validators.errMessages.nip
+    expect(validator '123-456-78-91').toEqual type: 'nip', message: Backbone.Form.validators.errMessages.nip

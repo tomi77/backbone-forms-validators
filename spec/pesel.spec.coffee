@@ -7,14 +7,6 @@ describe 'A Pesel validator', () ->
     expect(validator '74021834025').toBeUndefined()
     expect(validator '74021834001').toBeUndefined()
 
-  it 'should validate incorrect Pesel 00000000000', () ->
-    verify = validator '00000000000'
-    expect(verify).toBeDefined()
-    expect(verify.type).toBe('pesel')
-    expect(verify.message).toBe(Backbone.Form.validators.errMessages.pesel)
-
-  it 'should validate incorrect Pesel 74021834012', () ->
-    verify = validator '74021834012'
-    expect(verify).toBeDefined()
-    expect(verify.type).toBe('pesel')
-    expect(verify.message).toBe(Backbone.Form.validators.errMessages.pesel)
+  it 'should validate incorrect Pesel', () ->
+    expect(validator '00000000000').toEqual type: 'pesel', message: Backbone.Form.validators.errMessages.pesel
+    expect(validator '74021834012').toEqual type: 'pesel', message: Backbone.Form.validators.errMessages.pesel
