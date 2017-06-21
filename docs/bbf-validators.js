@@ -70,25 +70,36 @@ var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i 
     options.regexp = new RegExp("^.{0," + options.maxlength + "}$");
     return Form.validators.regexp(options);
   };
-  Form.validators.errMessages.weights_tab = 'Invalid control code';
-  Form.validators.weights_tab = function(options) {
-    var ref, weights;
+  Form.validators.errMessages.table_weights = 'Invalid control code';
+  Form.validators.table_weights = function(options) {
     options = _.extend({
-      type: 'weights_tab',
-      message: Form.validators.errMessages.weights_tab
+      type: 'table_weights',
+      message: Form.validators.errMessages.table_weights
     }, options);
+    if (options.lengths == null) {
+      throw new Error('Option "lengths" is required');
+    }
     if (!_.isArray(options.lengths)) {
       options.lengths = [options.lengths];
     }
-    if (_.isArray(options.weights) && options.lengths.length === 1) {
-      ref = [options.weights, {}], weights = ref[0], options.weights = ref[1];
-      options.weights[options.lengths[0]] = options.weights;
-    } else {
-      throw new Error("Incorrect options weights and lengths");
+    if (options.weights == null) {
+      throw new Error('Option "weights" is required');
     }
-    console.log(options.weights);
+    if (!((options.modulo_values != null) && _.isArray(options.modulo_values))) {
+      throw new Error('Option "modulo_values" is required');
+    }
+    if (_.isArray(options.weights)) {
+      if (options.lengths.length === 1) {
+        options.weights = _.object([options.lengths[0]], [options.weights]);
+      } else {
+        throw new Error('Incorrect options weights and lengths');
+      }
+    }
+    if (!_.isArray(options.excepts)) {
+      options.excepts = [options.excepts];
+    }
     return function(value) {
-      var control, err, ref1, sum;
+      var control, err, ref, sum;
       if (value.trim() === '') {
         value = null;
       }
@@ -105,7 +116,7 @@ var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i 
         return err;
       }
       value = value.split('');
-      if (ref1 = value.length, indexOf.call(options.lengths, ref1) < 0) {
+      if (ref = value.length, indexOf.call(options.lengths, ref) < 0) {
         return err;
       }
       control = value.pop();

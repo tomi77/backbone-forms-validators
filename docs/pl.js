@@ -33,9 +33,9 @@
       lengths: 10,
       weights: [6, 5, 7, 2, 3, 4, 5, 6, 7],
       modulo_values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-      excepts: ['0000000000']
+      excepts: '0000000000'
     });
-    return Form.validators.weights_tab(options);
+    return Form.validators.table_weights(options);
   };
   Form.validators.errMessages.pesel = 'Invalid Pesel';
   Form.validators.pesel = function(options) {
@@ -46,9 +46,9 @@
       lengths: 11,
       weights: [9, 7, 3, 1, 9, 7, 3, 1, 9, 7],
       modulo_values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-      excepts: ['00000000000']
+      excepts: '00000000000'
     });
-    return Form.validators.weights_tab(options);
+    return Form.validators.table_weights(options);
   };
   Form.validators.errMessages.regon = 'Invalid REGON';
   Form.validators.regon = function(options) {
@@ -63,8 +63,8 @@
         14: [2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8]
       },
       modulo_values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-      excepts: ['000000000']
+      excepts: '000000000'
     });
-    return Form.validators.weights_tab(options);
+    return Form.validators.table_weights(options);
   };
 });

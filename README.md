@@ -13,6 +13,37 @@ A set of Backbone-Forms validators
 bower install backbone-forms-validators
 ~~~
 
+## Usage
+
+### RequireJS
+
+Add packages to config file:
+
+~~~js
+packages: [{
+  name: 'backbone-forms-validators',
+  location: 'bower_components/backbone-forms-validators',
+  main: 'bbf-validators'
+}]
+~~~
+
+Use:
+
+~~~js
+define['backbone-forms-validators', 'backbone-forms-validators/pl'], function(Backbone, Form) {
+  // Your code
+}
+~~~
+
+### Vanila JS
+
+~~~html
+<script type="text/javascript" src="bower_components/backbone-forms-validators/bbf-validators.js"></script>
+<script type="text/javascript" src="bower_components/backbone-forms-validators/pl.js"></script>
+
+<!-- Rest od code -->
+~~~
+
 ## Validators
 
 ### multiple
