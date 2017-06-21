@@ -2,8 +2,8 @@
   "name": "backbone-forms-validators",
   "description": "A set of Backbone-Forms validators",
   "main": [
-    "dist/bbf-validators.js",
-    "dist/bbf-validators-pl.js"
+    "bbf-validators.js",
+    "bbf-validators-pl.js"
   ],
   "authors": [
     "Tomasz Jakub Rup"

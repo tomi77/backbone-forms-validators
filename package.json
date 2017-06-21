@@ -1,11 +1,11 @@
 {
   "scripts": {
     "build": "npm run build-js; npm run uglify",
-    "build-js": "coffee --bare --compile --no-header --output dist -- src/*.coffee",
-    "uglify": "for FILE in \"bbf-validators\" \"bbf-validators-pl\"; do uglifyjs dist/${FILE}.js --output dist/${FILE}.min.js --compress --mangle; done",
+    "build-js": "coffee --bare --compile --no-header --output . -- src/*.coffee",
+    "uglify": "for FILE in \"bbf-validators\" \"bbf-validators-pl\"; do uglifyjs ${FILE}.js --output ${FILE}.min.js --compress --mangle; done",
     "test": "karma start",
     "coveralls": "cat coverage/lcov.info | coveralls",
-    "build-docs": "pug --out docs templates/*.pug; find dist/ ! -name \"*.min.js\" -type f -exec cp -t docs/ {} +"
+    "build-docs": "pug --out docs templates/*.pug; coffee --bare --compile --no-header --output docs -- src/*.coffee"
   },
   "devDependencies": {
     "coffee-script": "^1.12.6",
