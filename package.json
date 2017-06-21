@@ -8,16 +8,16 @@
     "build-docs": "pug --out docs templates/*.pug; find dist/ ! -name \"*.min.js\" -type f -exec cp -t docs/ {} +"
   },
   "devDependencies": {
-    "coffee-script": "^1.10.0",
-    "coveralls": "^2.11.11",
-    "jasmine-core": "^2.4.1",
-    "karma": "^1.1.1",
-    "karma-coffee-coverage": "^1.1.2",
+    "coffee-script": "^1.12.6",
+    "coveralls": "^2.13.1",
+    "jasmine-core": "^2.6.4",
+    "karma": "^1.7.0",
+    "karma-coffee-coverage": "^2.0.0",
     "karma-coffee-preprocessor": "^1.0.1",
     "karma-coverage": "^1.1.0",
-    "karma-jasmine": "^1.0.2",
-    "karma-phantomjs-launcher": "^1.0.1",
+    "karma-jasmine": "^1.1.0",
+    "karma-phantomjs-launcher": "^1.0.4",
     "pug-cli": "^1.0.0-alpha6",
-    "uglify-js": "^2.7.0"
+    "uglify-js": "^3.0.18"
   }
 }
