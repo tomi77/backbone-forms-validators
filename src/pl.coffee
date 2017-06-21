@@ -1,5 +1,5 @@
 ###
-  Backbone-Forms validators PL 1.0.0
+  Backbone-Forms validators PL 1.0.1
 
   Copyright (c) 2016 Tomasz Jakub Rup
 
