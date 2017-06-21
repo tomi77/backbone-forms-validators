@@ -3,7 +3,8 @@
 [![Build Status](https://travis-ci.org/tomi77/backbone-forms-validators.svg?branch=master)](https://travis-ci.org/tomi77/backbone-forms-validators)
 [![Coverage Status](https://coveralls.io/repos/github/tomi77/backbone-forms-validators/badge.svg)](https://coveralls.io/github/tomi77/backbone-forms-validators)
 [![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-validators/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-validators)
-[![Dependency Status](https://www.versioneye.com/user/projects/57aacbb6c75d640030d07f83/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/57aacbb6c75d640030d07f83)
+[![Dependency Status](https://david-dm.org/tomi77/backbone-forms-validators.png)](https://david-dm.org/tomi77/backbone-forms-validators)
+[![devDependencies Status](https://david-dm.org/tomi77/backbone-forms-validators/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-validators?type=dev)
 
 A set of Backbone-Forms validators
 
@@ -11,6 +12,12 @@ A set of Backbone-Forms validators
 
 ~~~bash
 bower install backbone-forms-validators
+~~~
+
+or
+
+~~~bash
+npm install backbone-forms-validators
 ~~~
 
 ## Usage
@@ -42,6 +49,15 @@ define['backbone-forms-validators', 'backbone-forms-validators/pl'], function(Ba
 <script type="text/javascript" src="bower_components/backbone-forms-validators/pl.js"></script>
 
 <!-- Rest od code -->
+~~~
+
+### Webpack
+
+~~~js
+require('backbone-forms-validators')
+require('backbone-forms-validators/pl')
+
+// Rest of code
 ~~~
 
 ## Validators

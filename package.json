@@ -1,4 +1,15 @@
 {
+  "name": "backbone-forms-validators",
+  "version": "1.0.0",
+  "description": "A set of Backbone-Forms validators",
+  "keywords": [
+    "backbone-forms",
+    "validators",
+    "phone",
+    "nip",
+    "pesel",
+    "regon"
+  ],
   "scripts": {
     "build": "npm run build-js; npm run uglify",
     "build-js": "coffee --bare --compile --no-header --output . -- src/*.coffee",
@@ -6,6 +17,9 @@
     "test": "karma start",
     "coveralls": "cat coverage/lcov.info | coveralls",
     "build-docs": "pug --out docs templates/*.pug; coffee --bare --compile --no-header --output docs -- src/*.coffee"
+  },
+  "dependencies": {
+    "backbone-forms": "^0.14.1"
   },
   "devDependencies": {
     "coffee-script": "^1.12.6",
@@ -19,5 +33,13 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "pug-cli": "^1.0.0-alpha6",
     "uglify-js": "^3.0.18"
-  }
+  },
+  "repository": "tomi77/backbone-forms-validators",
+  "main": "bbf-validators.js",
+  "author": "Tomasz Jakub Rup",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tomi77/backbone-forms-validators/issues"
+  },
+  "homepage": "https://github.com/tomi77/backbone-forms-validators#README.md"
 }
