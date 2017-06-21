@@ -60,6 +60,16 @@ var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i 
     }, options);
     return Form.validators.regexp(options);
   };
+  Form.validators.errMessages.minlength = _.template('The minimum length is <%= minlength %> characters', null, Form.templateSettings);
+  Form.validators.minlength = function(options) {
+    options = _.extend({
+      type: 'minlength',
+      maxlength: 0,
+      message: Form.validators.errMessages.minlength
+    }, options);
+    options.regexp = new RegExp("^.{" + options.minlength + ",}$");
+    return Form.validators.regexp(options);
+  };
   Form.validators.errMessages.maxlength = _.template('The maximum length is <%= maxlength %> characters', null, Form.templateSettings);
   Form.validators.maxlength = function(options) {
     options = _.extend({

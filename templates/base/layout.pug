@@ -9,6 +9,11 @@ mixin menu(name)
   else
     li: a(href="multiple.html") Multiple
 
+  if name == 'minlength'
+    li.active: a(href="minlength.html") Min Length
+  else
+    li: a(href="minlength.html") Min Length
+
   if name == 'maxlength'
     li.active: a(href="maxlength.html") Max Length
   else

@@ -67,6 +67,17 @@
 
     Form.validators.regexp options
 
+  Form.validators.errMessages.minlength = _.template 'The minimum length is <%= minlength %> characters', null, Form.templateSettings
+  Form.validators.minlength = (options) ->
+    options = _.extend
+      type: 'minlength'
+      maxlength: 0
+      message: Form.validators.errMessages.minlength
+    , options
+    options.regexp = new RegExp "^.{#{ options.minlength },}$"
+
+    Form.validators.regexp options
+
   Form.validators.errMessages.maxlength = _.template 'The maximum length is <%= maxlength %> characters', null, Form.templateSettings
   Form.validators.maxlength = (options) ->
     options = _.extend

@@ -1,7 +1,7 @@
 extends ./base/layout
 
 block title
-  title Backbone-Forms maxlength validator examples
+  title Backbone-Forms minlength validator examples
 
 block menu
   +menu('maxlength')
@@ -21,8 +21,8 @@ block extraheaders
             type: 'Text',
             title: 'Name',
             validators: [{
-              type: 'maxlength',
-              maxlength: 9
+              type: 'minlength',
+              minlength: 3
             }]
           }
         }
@@ -49,8 +49,8 @@ block content
             type: 'Text',
             title: 'Name',
             validators: [{
-              type: 'maxlength',
-              maxlength: 9
+              type: 'minlength',
+              minlength: 3
             }]
           }
         }

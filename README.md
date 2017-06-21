@@ -93,6 +93,23 @@ form = new Backbone.Form
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/phone.html)
 
+### minlength
+
+Validates length of entered text
+
+~~~coffee-script
+form = new Backbone.Form
+  schema:
+    text:
+      type: 'Text'
+      validators: [
+        type: 'minlength'
+        minlength: 3
+      ]
+~~~
+
+[Demo](https://tomi77.github.io/backbone-forms-validators/minlength.html)
+
 ### maxlength
 
 Validates length of entered text
