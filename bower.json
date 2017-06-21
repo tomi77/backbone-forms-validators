@@ -24,6 +24,8 @@
     "bower_components",
     "src",
     "spec",
+    "templates",
+    "docs",
     ".*",
     "*.json",
     "karma.conf.coffee"
