@@ -8,6 +8,8 @@
 
   Released under the MIT license
  */
+var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
 (function(root, factory) {
 
   /* istanbul ignore next */
@@ -67,5 +69,64 @@
     }, options);
     options.regexp = new RegExp("^.{0," + options.maxlength + "}$");
     return Form.validators.regexp(options);
+  };
+  Form.validators.errMessages.table_weights = 'Invalid control code';
+  Form.validators.table_weights = function(options) {
+    options = _.extend({
+      type: 'table_weights',
+      message: Form.validators.errMessages.table_weights
+    }, options);
+    if (options.lengths == null) {
+      throw new Error('Option "lengths" is required');
+    }
+    if (!_.isArray(options.lengths)) {
+      options.lengths = [options.lengths];
+    }
+    if (options.weights == null) {
+      throw new Error('Option "weights" is required');
+    }
+    if (!((options.modulo_values != null) && _.isArray(options.modulo_values))) {
+      throw new Error('Option "modulo_values" is required');
+    }
+    if (_.isArray(options.weights)) {
+      if (options.lengths.length === 1) {
+        options.weights = _.object([options.lengths[0]], [options.weights]);
+      } else {
+        throw new Error('Incorrect options weights and lengths');
+      }
+    }
+    if (!_.isArray(options.excepts)) {
+      options.excepts = [options.excepts];
+    }
+    return function(value) {
+      var control, err, ref, sum;
+      if (value.trim() === '') {
+        value = null;
+      }
+      if (value == null) {
+        return;
+      }
+      options.value = value;
+      err = {
+        type: options.type,
+        message: options.message
+      };
+      value = value.replace(/[\s-]/g, '');
+      if (indexOf.call(options.excepts, value) >= 0) {
+        return err;
+      }
+      value = value.split('');
+      if (ref = value.length, indexOf.call(options.lengths, ref) < 0) {
+        return err;
+      }
+      control = value.pop();
+      sum = _.reduce(_.zip(value, options.weights[value.length + 1]), function(memo, val) {
+        return memo + val[1] * parseInt(val[0], 10);
+      }, 0);
+      value = '' + options.modulo_values[sum % options.modulo_values.length];
+      if (value !== control) {
+        return err;
+      }
+    };
   };
 });

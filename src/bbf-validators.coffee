@@ -78,4 +78,51 @@
 
     Form.validators.regexp options
 
+  Form.validators.errMessages.table_weights = 'Invalid control code'
+  Form.validators.table_weights = (options) ->
+    options = _.extend
+      type: 'table_weights'
+      message: Form.validators.errMessages.table_weights
+    , options
+
+    unless options.lengths?
+      throw new Error 'Option "lengths" is required'
+    options.lengths = [options.lengths] unless _.isArray options.lengths
+
+    unless options.weights?
+      throw new Error 'Option "weights" is required'
+
+    unless options.modulo_values? and _.isArray options.modulo_values
+      throw new Error 'Option "modulo_values" is required'
+
+    if _.isArray options.weights
+      if options.lengths.length is 1
+        options.weights = _.object [options.lengths[0]], [options.weights]
+      else
+        throw new Error 'Incorrect options weights and lengths'
+
+    options.excepts = [options.excepts] unless _.isArray options.excepts
+
+    (value) ->
+      value = null if value.trim() is ''
+
+      # Don't check empty values (add a 'required' validator for this)
+      unless value? then return
+
+      options.value = value
+
+      err = type: options.type, message: options.message
+
+      value = value.replace /[\s-]/g, ''
+      if value in options.excepts then return err
+      value = value.split ''
+      unless value.length in options.lengths then return err
+
+      control = value.pop()
+      sum = _.reduce _.zip(value, options.weights[value.length + 1]),
+        (memo, val) -> memo + val[1] * parseInt val[0], 10
+      , 0
+      value = '' + options.modulo_values[sum % options.modulo_values.length]
+      unless value is control then err
+
   return

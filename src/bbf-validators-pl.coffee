@@ -14,9 +14,9 @@
   ###
   switch
     when typeof define is 'function' and define.amd
-      define ['underscore', 'backbone-forms'], factory
+      define ['underscore', 'backbone-forms', 'backbone-forms-validators'], factory
     when typeof exports is 'object'
-      factory require('underscore'), require('backbone-forms')
+      factory require('underscore'), require('backbone-forms'), require('backbone-forms-validators')
     else
       factory root._, root.Backbone.Form
   return
@@ -26,91 +26,41 @@
     options = _.extend
       type: 'nip'
       message: Form.validators.errMessages.nip
-    , options
+    , options,
+      lengths: 10
+      weights: [6, 5, 7, 2, 3, 4, 5, 6, 7]
+      modulo_values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+      excepts: '0000000000'
 
-    (value) ->
-      value = null if value.trim() is ''
-
-      # Don't check empty values (add a 'required' validator for this)
-      unless value? then return
-
-      options.value = value
-
-      err = type: options.type, message: options.message
-
-      value = value.replace /[\s-]/g, ''
-      unless value.length is 10 and parseInt(value, 10) > 0 then return err
-
-      value = value.split('').map (val) -> parseInt val, 10
-      control = value.pop()
-      weights = [6, 5, 7, 2, 3, 4, 5, 6, 7]
-      sum = _.reduce _.zip(value, weights),
-        (memo, val) -> memo + val[0] * val[1]
-      , 0
-      value = sum % 11
-      value = 0 if value is 10
-      unless value is control then err
+    Form.validators.table_weights options
 
   Form.validators.errMessages.pesel = 'Invalid Pesel'
   Form.validators.pesel = (options) ->
     options = _.extend
       type: 'pesel'
       message: Form.validators.errMessages.pesel
-    , options
+    , options,
+      lengths: 11
+      weights: [9, 7, 3, 1, 9, 7, 3, 1, 9, 7]
+      modulo_values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      excepts: '00000000000'
 
-    (value) ->
-      value = null if value.trim() is ''
-
-      # Don't check empty values (add a 'required' validator for this)
-      unless value? then return
-
-      options.value = value
-
-      err = type: options.type, message: options.message
-
-      value = value.replace /[\s-]/g, ''
-      unless value.length is 11 and parseInt(value, 10) > 0 then return err
-
-      value = value.split('').map (val) -> parseInt val, 10
-      control = value.pop()
-      weights = [9, 7, 3, 1, 9, 7, 3, 1, 9, 7]
-      sum = _.reduce _.zip(value, weights),
-        (memo, val) -> memo + val[0] * val[1]
-      , 0
-      value = sum % 10
-      unless value is control then err
+    Form.validators.table_weights options
 
   Form.validators.errMessages.regon = 'Invalid REGON'
   Form.validators.regon = (options) ->
     options = _.extend
       type: 'regon'
       message: Form.validators.errMessages.regon
-    , options
+    , options,
+      lengths: [7, 9, 14]
+      weights:
+        7: [2, 3, 4, 5, 6, 7]
+        9: [8, 9, 2, 3, 4, 5, 6, 7]
+        14: [2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8]
+      modulo_values: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+      excepts: '000000000'
 
-    (value) ->
-      value = null if value.trim() is ''
-
-      # Don't check empty values (add a 'required' validator for this)
-      unless value? then return
-
-      options.value = value
-
-      err = type: options.type, message: options.message
-
-      value = value.replace /[\s-]/g, ''
-      unless value.length in [7, 9, 14] and parseInt(value, 10) > 0 then return err
-
-      value = value.split('').map (val) -> parseInt val, 10
-      control = value.pop()
-      weights = switch value.length
-        when 6 then [2, 3, 4, 5, 6, 7]
-        when 8 then [8, 9, 2, 3, 4, 5, 6, 7]
-        when 13 then [2, 4, 8, 5, 0, 9, 7, 3, 6, 1, 2, 4, 8]
-      sum = _.reduce _.zip(value, weights),
-        (memo, val) -> memo + val[0] * val[1]
-      , 0
-      value = sum % 11
-      value = 0 if value is 10
-      unless value is control then err
+    Form.validators.table_weights options
 
   return

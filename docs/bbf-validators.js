@@ -8,6 +8,8 @@
 
   Released under the MIT license
  */
+var indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+
 (function(root, factory) {
 
   /* istanbul ignore next */
@@ -67,5 +69,53 @@
     }, options);
     options.regexp = new RegExp("^.{0," + options.maxlength + "}$");
     return Form.validators.regexp(options);
+  };
+  Form.validators.errMessages.weights_tab = 'Invalid control code';
+  Form.validators.weights_tab = function(options) {
+    var ref, weights;
+    options = _.extend({
+      type: 'weights_tab',
+      message: Form.validators.errMessages.weights_tab
+    }, options);
+    if (!_.isArray(options.lengths)) {
+      options.lengths = [options.lengths];
+    }
+    if (_.isArray(options.weights) && options.lengths.length === 1) {
+      ref = [options.weights, {}], weights = ref[0], options.weights = ref[1];
+      options.weights[options.lengths[0]] = options.weights;
+    } else {
+      throw new Error("Incorrect options weights and lengths");
+    }
+    console.log(options.weights);
+    return function(value) {
+      var control, err, ref1, sum;
+      if (value.trim() === '') {
+        value = null;
+      }
+      if (value == null) {
+        return;
+      }
+      options.value = value;
+      err = {
+        type: options.type,
+        message: options.message
+      };
+      value = value.replace(/[\s-]/g, '');
+      if (indexOf.call(options.excepts, value) >= 0) {
+        return err;
+      }
+      value = value.split('');
+      if (ref1 = value.length, indexOf.call(options.lengths, ref1) < 0) {
+        return err;
+      }
+      control = value.pop();
+      sum = _.reduce(_.zip(value, options.weights[value.length + 1]), function(memo, val) {
+        return memo + val[1] * parseInt(val[0], 10);
+      }, 0);
+      value = '' + options.modulo_values[sum % options.modulo_values.length];
+      if (value !== control) {
+        return err;
+      }
+    };
   };
 });
