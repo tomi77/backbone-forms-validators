@@ -5,6 +5,7 @@
 [![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-validators/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-validators)
 [![Dependency Status](https://david-dm.org/tomi77/backbone-forms-validators.png)](https://david-dm.org/tomi77/backbone-forms-validators)
 [![devDependencies Status](https://david-dm.org/tomi77/backbone-forms-validators/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-validators?type=dev)
+![Downloads](https://img.shields.io/npm/dt/backbone-forms-chosen.svg)
 
 A set of Backbone-Forms validators
 
