@@ -65,17 +65,20 @@ require('backbone-forms-validators/pl')
 
 ### multiple
 
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    emails:
-      type: 'Text'
-      validators: [
-        type: 'multiple'
-        base_type: 'email'
-        separator: ','
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    emails: {
+      type: 'Text',
+      validators: [{
+        type: 'multiple',
+        base_type: 'email',
+        separator: ',',
         message: 'Emails separated by colon'
-      ]
+      }]
+    }
+  }
+});
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/multiple.html)
@@ -84,12 +87,15 @@ form = new Backbone.Form
 
 Validates phone number
 
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    phone:
-      type: 'Text'
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    phone: {
+      type: 'Text',
       validators: ['phone']
+    }
+  }
+});
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/phone.html)
@@ -98,15 +104,18 @@ form = new Backbone.Form
 
 Validates length of entered text
 
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    text:
-      type: 'Text'
-      validators: [
-        type: 'minlength'
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    text: {
+      type: 'Text',
+      validators: [{
+        type: 'minlength',
         minlength: 3
-      ]
+      }]
+    }
+  }
+});
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/minlength.html)
@@ -115,15 +124,18 @@ form = new Backbone.Form
 
 Validates length of entered text
 
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    text:
-      type: 'Text'
-      validators: [
-        type: 'maxlength'
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    text: {
+      type: 'Text',
+      validators: [{
+        type: 'maxlength',
         maxlength: 9
-      ]
+      }]
+    }
+  }
+});
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/maxlength.html)
@@ -132,12 +144,15 @@ form = new Backbone.Form
 
 Validates NIP (Polish tax identification number)
 
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    nip:
-      type: 'Text'
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    nip: {
+      type: 'Text',
       validators: ['nip']
+    }
+  }
+});
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/nip.html)
@@ -146,12 +161,15 @@ form = new Backbone.Form
 
 Validates Pesel (Polish identification number)
 
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    pesel:
-      type: 'Text'
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    pesel: {
+      type: 'Text',
       validators: ['pesel']
+    }
+  }
+});
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/pesel.html)
@@ -160,12 +178,15 @@ form = new Backbone.Form
 
 Validates REGON (Polish Taxpayer Identification Number)
 
-~~~coffee-script
-form = new Backbone.Form
-  schema:
-    regon:
-      type: 'Text'
+~~~js
+var form = new Backbone.Form({
+  schema: {
+    regon: {
+      type: 'Text',
       validators: ['regon']
+    }
+  }
+});
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/regon.html)
