@@ -7,7 +7,7 @@
 [![devDependencies Status](https://david-dm.org/tomi77/backbone-forms-validators/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-validators?type=dev)
 ![Downloads](https://img.shields.io/npm/dt/backbone-forms-chosen.svg)
 
-A set of Backbone-Forms validators
+A set of [Backbone-Forms](https://github.com/powmedia/backbone-forms) validators
 
 ## Installation
 
