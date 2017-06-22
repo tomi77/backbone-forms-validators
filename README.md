@@ -43,7 +43,7 @@ define['backbone-forms-validators', 'backbone-forms-validators/pl'], function(Ba
 }
 ~~~
 
-### Vanila JS
+### Vanilla JS
 
 ~~~html
 <script type="text/javascript" src="bower_components/backbone-forms-validators/bbf-validators.js"></script>
