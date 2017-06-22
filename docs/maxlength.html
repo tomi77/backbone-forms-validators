@@ -1,34 +1,49 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Backbone-Forms maxlength validator examples</title><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.0/backbone-forms.min.js"></script><script type="text/javascript" src="bbf-validators.js"></script><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.0/templates/bootstrap3.css"><script type="text/javascript">var example = function () {
-  var form = new Backbone.Form({
-    schema: {
-      name: {
-        type: 'Text',
-        title: 'Name',
-        validators: [{
-          type: 'maxlength',
-          maxlength: 9
-        }]
-      }
-    }
-  });
-  $('#form').html(form.render().$el);
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Backbone-Forms maxlength validator examples</title><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.3.3/backbone-min.js"></script><script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.1/backbone-forms.min.js"></script><script type="text/javascript" src="bbf-validators.js"></script><script type="text/javascript" src="pl.js"></script><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/backbone-forms/0.14.1/templates/bootstrap3.css"><style>div[data-error] {color: red;}</style><script>(function() {
+  var example;
 
-  $('#test').on('click', function () {
-    form.validate();
-  });
-};
-document.addEventListener("DOMContentLoaded", example, false);
-window.addEventListener("load", example, false);
-</script></head><body><nav class="navbar navbar-default"><div class="container"><div class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="index.html">Home</a></li><li><a href="multiple.html">Multiple</a></li><li><a href="minlength.html">Min Length</a></li><li class="active"><a href="maxlength.html">Max Length</a></li><li><a href="phone.html">Phone</a></li><li><a href="nip.html">NIP</a></li><li><a href="pesel.html">Pesel</a></li><li><a href="regon.html">REGON</a></li></ul></div></div></nav><div class="container"><h3>Example:</h3><div id="form" style="padding-bottom: 10px"></div><button class="btn btn-primary" id="test">Test</button><h3>Code:</h3><pre>var form = new Backbone.Form({
-  schema: {
-    name: {
-      type: 'Text',
-      title: 'Name',
-      validators: [{
-        type: 'maxlength',
-        maxlength: 9
-      }]
-    }
-  }
-});
-$('#form').html(form.render().$el);</pre></div></body></html>
+  example = function() {
+    return this.schema = function() {
+      return {
+        name: {
+          type: 'Text',
+          title: 'Name',
+          help: 'Enter text shorter than 10 characters',
+          validators: [
+            {
+              type: 'maxlength',
+              maxlength: 9
+            }
+          ],
+          editorAttrs: {
+            autocomplete: 'off'
+          }
+        }
+      };
+    };
+  };
+
+  document.addEventListener("DOMContentLoaded", example, false);
+
+  window.addEventListener("load", example, false);
+
+}).call(this);
+</script><script>(function() {
+  var example;
+
+  example = function() {
+    var form;
+    form = new Backbone.Form({
+      schema: this.schema()
+    });
+    $('#form').html(form.render().$el);
+    return $('#form input').on('keyup', function() {
+      form.validate();
+    });
+  };
+
+  document.addEventListener("DOMContentLoaded", example, false);
+
+  window.addEventListener("load", example, false);
+
+}).call(this);
+</script></head><body><nav class="navbar navbar-default"><div class="container"><div class="collapse navbar-collapse"><ul class="nav navbar-nav"><li><a href="index.html">Home</a></li><li><a href="multiple.html">Multiple</a></li><li><a href="minlength.html">Min Length</a></li><li class="active"><a href="maxlength.html">Max Length</a></li><li><a href="phone.html">Phone</a></li><li><a href="nip.html">NIP</a></li><li><a href="pesel.html">Pesel</a></li><li><a href="regon.html">REGON</a></li></ul></div></div></nav><div class="container"><div id="form" style="padding-bottom: 10px"></div></div></body></html>
