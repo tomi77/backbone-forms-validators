@@ -38,7 +38,7 @@ packages: [{
 Use:
 
 ~~~js
-define['backbone-forms-validators', 'backbone-forms-validators/pl'], function(Backbone, Form) {
+define['backbone-forms-validators', 'backbone-forms-validators/pl'], function() {
   // Your code
 }
 ~~~
