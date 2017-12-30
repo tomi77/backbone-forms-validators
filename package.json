@@ -18,7 +18,7 @@
     "coveralls": "cat coverage/lcov.info | coveralls",
     "build-docs": "pug --out docs templates/*.pug; coffee --bare --compile --no-header --output docs -- src/*.coffee"
   },
-  "dependencies": {
+  "peerDependencies": {
     "backbone-forms": "^0.14.1"
   },
   "devDependencies": {

@@ -3,8 +3,8 @@
 [![Build Status](https://travis-ci.org/tomi77/backbone-forms-validators.svg?branch=master)](https://travis-ci.org/tomi77/backbone-forms-validators)
 [![Coverage Status](https://coveralls.io/repos/github/tomi77/backbone-forms-validators/badge.svg)](https://coveralls.io/github/tomi77/backbone-forms-validators)
 [![Code Climate](https://codeclimate.com/github/tomi77/backbone-forms-validators/badges/gpa.svg)](https://codeclimate.com/github/tomi77/backbone-forms-validators)
-[![Dependency Status](https://david-dm.org/tomi77/backbone-forms-validators.png)](https://david-dm.org/tomi77/backbone-forms-validators)
 [![devDependencies Status](https://david-dm.org/tomi77/backbone-forms-validators/dev-status.svg)](https://david-dm.org/tomi77/backbone-forms-validators?type=dev)
+[![peerDependency Status](https://david-dm.org/tomi77/backbone-forms-validators.png)](https://david-dm.org/tomi77/backbone-forms-validators?type=peer)
 ![Downloads](https://img.shields.io/npm/dt/backbone-forms-validators.svg)
 
 A set of [Backbone-Forms](https://github.com/powmedia/backbone-forms) validators
