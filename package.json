@@ -23,10 +23,10 @@
   },
   "devDependencies": {
     "coffee-script": "^1.12.6",
-    "coveralls": "^2.13.1",
+    "coveralls": "^3.0.0",
     "jasmine-core": "^2.6.4",
     "jstransformer-coffee-script": "^1.1.0",
-    "karma": "^1.7.0",
+    "karma": "^2.0.0",
     "karma-coffee-coverage": "^2.0.0",
     "karma-coffee-preprocessor": "^1.0.1",
     "karma-coverage": "^1.1.0",
