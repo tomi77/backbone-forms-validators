@@ -21,6 +21,7 @@ A set of [Backbone-Forms](https://github.com/powmedia/backbone-forms) validators
   * [phone](#phone)
   * [maxlength](#maxlength)
   * [minlength](#minlength)
+* [Validators PL](#validatorspl)
   * [nip](#nip)
   * [pesel](#pesel)
   * [regon](#regon)
@@ -155,6 +156,8 @@ var form = new Backbone.Form({
 ~~~
 
 [Demo](https://tomi77.github.io/backbone-forms-validators/maxlength.html)
+
+## Validators PL
 
 ### nip
 
