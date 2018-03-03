@@ -9,6 +9,22 @@
 
 A set of [Backbone-Forms](https://github.com/powmedia/backbone-forms) validators
 
+## Table of contents
+
+* [Installation](#installation)
+* [Usage](#usage)
+  * [RequireJS](#requirejs)
+  * [Vanilla JS](#vanillajs)
+  * [Webpack](#webpack)
+* [Validators](validators)
+  * [multiple](#multiple)
+  * [phone](#phone)
+  * [maxlength](#maxlength)
+  * [minlength](#minlength)
+  * [nip](#nip)
+  * [pesel](#pesel)
+  * [regon](#regon)
+
 ## Installation
 
 ~~~bash
